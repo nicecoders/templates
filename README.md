@@ -1,34 +1,7 @@
-## 目前已有脚手架列表
+# YOUR_PROJECT_NAME
 
-| 名称    | 说明                        | 技术栈                |
-| ------- | --------------------------- | --------------------- |
-| nextJs  | 基于 React 的服务端渲染方案 | nextJs + axios + antd |
-| ReactJs | 基于 React 的业务型脚手架   | umiJs + axios + antd  |
-| TaroJs  | 基于 React 的多端适配方案   | TaroJs 全家桶         |
-| Vue     | 基于 Vue 的业务型脚手架     | vueJs 全家桶          |
-| Gulp    | 基于 Gulp 的清凉型脚手架    | --                    |
+## 项目介绍
+## 技术栈
 
-## 快速上手
-
-### 1. 安装相关依赖
-
-```js
-// 推荐
-yarn global add @nicecode/cli
-
-// or
-// npm install @nicecode/cli -g
-```
-
-### 2. 运行命令
-
-```js
-// 查看脚手架版本号，是否安装成功
-nice - V
-```
-
-### 3. 创建项目
-
-```js
-nice create ${项目名称}
-```
+- Taro
+- scss

@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "taro-template",
-  "description": "Trao 项目模版",
+  "projectname": "a",
+  "description": "temp",
   "appid": "touristappid",
   "setting": {
     "urlCheck": true,

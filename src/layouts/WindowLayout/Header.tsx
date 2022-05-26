@@ -3,13 +3,13 @@ import { Image, Divider } from 'antd';
 import User from '@/components/User';
 import './index.less';
 
-const Header = () => {
+function Header() {
   return (
     <div className="g-window-layout-header">
       <div
         className="g-window-layout-header-logo"
         onClick={() => history.push('/')}
-      >  
+      >
         <Image
           src={require('../../assets/images/logo.png')}
           alt="logo"
@@ -28,6 +28,6 @@ const Header = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Header;

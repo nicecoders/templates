@@ -5,6 +5,7 @@ import { ConnectState } from '@/models/connect';
 export interface SecurityWrapperProps {
   token: string;
   dispatch: Dispatch;
+  children: React.ReactNode
 }
 
 const SecurityWrapper: React.FC<SecurityWrapperProps> = ({

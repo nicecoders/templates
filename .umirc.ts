@@ -1,14 +1,14 @@
 import { defineConfig } from 'umi';
-import Icon from './public/favicon.ico'
 
 export default defineConfig({
-  favicon: Icon,
+  favicon: '#',
   hash: true,
   dva: {
     immer: true,
     hmr: false,
   },
   webpack5: {},
+  mfsu: {},
   dynamicImport: {
     loading: '@/components/PageLoading/index',
   },

@@ -1,5 +1,9 @@
 import React from 'react';
 
-const BlankLayout: React.FC = ({ children }) => <>{children}</>;
+interface IBlankLayout {
+  children: React.ReactNode
+}
+
+const BlankLayout: React.FC<IBlankLayout> = ({ children }) => (<>{children}</>);
 
 export default BlankLayout;

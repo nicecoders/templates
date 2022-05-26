@@ -1,15 +1,20 @@
 import React from 'react';
 import { history, Link } from 'umi';
-import { EntranceOutlined } from '@ant-design/icons-react';
+import { EnterOutlined } from '@ant-design/icons';
 import ProLayout, { MenuDataItem } from '@ant-design/pro-layout';
 import { HeaderViewProps } from '@ant-design/pro-layout/lib/Header';
-import User from '@/components/User';
+// import User from '@/components/User';
 import Breadcrumb from './Breadcrumb';
 import './index.less';
 
-const BasicLayout: React.FC = ({ children, ...rest }) => {
+
+interface IBasicLayout {
+  children: React.ReactNode
+}
+
+const BasicLayout: React.FC<IBasicLayout> = ({ children, ...rest }: any) => {
   const iconMap = {
-    EntranceOutlined: <EntranceOutlined />,
+    EnterOutlined: <EnterOutlined />,
   };
 
   // 带子菜单的一级导航
@@ -52,13 +57,13 @@ const BasicLayout: React.FC = ({ children, ...rest }) => {
   };
 
   // 用户信息
-  const renderUserAvatar = () => <User />;
+  // const renderUserAvatar = () => <User />;
 
   return (
     <ProLayout
       className="g-basic-layout"
-      logo="https://fe-cloud.uni-ubi.com/image/1625038486292-logo-r.png?x-oss-process=img/q/80"
-      title="Uni-Ubi"
+      logo="http://jzx-h5.oss-cn-hangzhou.aliyuncs.com/static/pill.png?x-oss-process=img/q/80"
+      title="nicecode"
       siderWidth={180}
       fixedHeader
       fixSiderbar
@@ -66,7 +71,7 @@ const BasicLayout: React.FC = ({ children, ...rest }) => {
       subMenuItemRender={renderSubMenuItem}
       menuItemRender={renderMenuItem}
       headerContentRender={renderHeaderContent}
-      rightContentRender={renderUserAvatar}
+      // rightContentRender={renderUserAvatar}
       {...rest}
     >
       {children}

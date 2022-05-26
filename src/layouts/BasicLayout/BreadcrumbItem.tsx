@@ -2,7 +2,7 @@ import React from 'react';
 import { history } from 'umi';
 import { Button } from 'antd';
 import { ButtonProps } from 'antd/lib/button';
-import { HomeFilled } from '@ant-design/icons-react';
+import { HomeOutlined } from '@ant-design/icons';
 import classnames from 'classnames';
 import './index.less';
 
@@ -15,7 +15,7 @@ const BreadcrumbItem = ({
   children,
   className,
   ...rest
-}: BreadcrumbItemProps): JSX.Element => {
+}: BreadcrumbItemProps) => {
   return (
     <Button
       className={classnames('g-basic-layout-header-breadcrumb-item', className)}
@@ -39,7 +39,7 @@ const RootItem: React.FC<ButtonProps> = ({ className, ...rest }) => (
     onClick={() => history.push('/')}
     {...rest}
   >
-    <HomeFilled />
+    <HomeOutlined />
   </Button>
 );
 

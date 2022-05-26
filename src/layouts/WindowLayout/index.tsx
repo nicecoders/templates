@@ -2,7 +2,11 @@ import React from 'react';
 import Header from './Header';
 import './index.less';
 
-const WindowLayout: React.FC = ({ children }) => {
+interface IWindowLayout {
+  children: React.ReactNode
+}
+
+const WindowLayout: React.FC<IWindowLayout> = ({ children }) => {
   return (
     <div className="g-window-layout">
       <div className="g-window-layout-header-wrapper">

@@ -1,9 +1,9 @@
 import styles from './index.less';
 
-export default () => {
+export default function () {
   return (
     <div>
-      <h1 className={styles.title}>index</h1>
+      <h1 className={styles.title}>welcome! there is nicecode!</h1>
     </div>
   );
-};
+}

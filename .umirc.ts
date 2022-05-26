@@ -2,7 +2,7 @@ import { defineConfig } from 'umi';
 import px2rem from 'postcss-px2rem';
 
 export default defineConfig({
-  favicon: '#',
+  favicon: 'https://jzx-h5.oss-cn-hangzhou.aliyuncs.com/logo.ico',
   hash: true,
   dva: {
     immer: true,

@@ -1,7 +1,7 @@
 import { defineConfig } from 'umi';
 
 export default defineConfig({
-  favicon: '#',
+  favicon: 'http://localhost:8000',
   hash: true,
   dva: {
     immer: true,

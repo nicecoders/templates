@@ -1,4 +1,5 @@
 import { defineConfig } from 'umi';
+import px2rem from 'postcss-px2rem';
 
 export default defineConfig({
   favicon: '#',
@@ -7,52 +8,26 @@ export default defineConfig({
     immer: true,
     hmr: false,
   },
+  publicPath: '/',
   webpack5: {},
   mfsu: {},
   dynamicImport: {
     loading: '@/components/PageLoading/index',
   },
+  extraPostCSSPlugins: [px2rem({ remUnit: 66.7, exclude: /node_modules/i })],
   routes: [
     {
-      path: '/window',
-      component: '@/layouts/WindowLayout',
-      routes: [
-        {
-          path: 'demo',
-          component: '@/pages/index',
-          name: '一级菜单',
-          title: '一级菜单',
-          icon: 'EntranceOutlined',
-        }
-      ]
-    },
-    {
       path: '/',
-      component: '@/layouts/BasicLayout',
-      // wrappers: ['@/wrappers/SecurityLayout'],
+      component: '@/layouts/BlankLayout',
+      wrappers: ['@/wrappers/SecurityWrapper'],
       routes: [
-        { exact: true, path: '/', redirect: '/a' },
+        // { exact: true, path: '/', redirect: '/home' },
         {
-          path: 'a',
+          path: '/',
           component: '@/pages/index',
           name: '一级菜单',
           title: '一级菜单',
           icon: 'EntranceOutlined',
-        },
-        {
-          path: 'b',
-          name: '一级菜单',
-          title: '一级菜单',
-          icon: 'EntranceOutlined',
-          routes: [
-            { exact: true, path: '/b', redirect: '/b/c' },
-            {
-              path: 'c',
-              component: '@/pages/index',
-              name: '二级菜单',
-              title: '二级菜单',
-            },
-          ],
         },
       ],
     },
@@ -98,10 +73,20 @@ export default defineConfig({
   },
   locale: {
     default: 'zh-CN',
-    antd: true,
+    antd: false,
   },
   ignoreMomentLocale: true,
   targets: {
     ie: 10,
-  }
+  },
+  extraBabelPlugins: [
+    [
+      'import',
+      {
+        libraryName: 'antd-mobile',
+        libraryDirectory: 'es/components',
+        style: false,
+      },
+    ],
+  ],
 });

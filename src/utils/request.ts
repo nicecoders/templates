@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { message } from 'antd';
+import { Toast } from 'antd-mobile';
 import CodeMsg from '@/assets/data/code';
 import { BaseResponse } from '@/interfaces/base';
 
@@ -11,7 +11,9 @@ export const DEFAULT_TIP_MESSAGE = '请求失败，请刷新重试';
  */
 export function handleError(data: BaseResponse): void {
   const msg = CodeMsg[data.code] || data.msg || DEFAULT_TIP_MESSAGE;
-  message.error(msg);
+  Toast.show({
+    content: msg,
+  })
 }
 
 // create an axios instance
@@ -33,9 +35,13 @@ service.interceptors.request.use(
   error => {
     // Do something with request error
     if (error.status === '504') {
-      message.error('网关超时，请重试！');
+      Toast.show({
+        content: '网关超时，请重试！',
+      })
     } else {
-      message.error(`网络异常[-${error.status}]`);
+      Toast.show({
+        content: `网络异常[-${error.status}]`,
+      })
       console.log(error); // for debug
     }
     Promise.reject(error);

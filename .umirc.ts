@@ -8,13 +8,17 @@ export default defineConfig({
     immer: true,
     hmr: false,
   },
+  antd: {
+    mobile: false,
+  },
   publicPath: '/',
-  webpack5: {},
-  mfsu: {},
+  fastRefresh: {},
+  // webpack5: {},
+  // mfsu: {},
   dynamicImport: {
     loading: '@/components/PageLoading/index',
   },
-  extraPostCSSPlugins: [px2rem({ remUnit: 66.7, exclude: /node_modules/i })],
+  extraPostCSSPlugins: [px2rem({ remUnit: 37.5, exclude: /node_modules/i })],
   routes: [
     {
       path: '/',
@@ -25,8 +29,8 @@ export default defineConfig({
         {
           path: '/',
           component: '@/pages/index',
-          name: '一级菜单',
-          title: '一级菜单',
+          name: '首页',
+          title: '首页',
           icon: 'EntranceOutlined',
         },
       ],
@@ -79,14 +83,14 @@ export default defineConfig({
   targets: {
     ie: 10,
   },
-  extraBabelPlugins: [
-    [
-      'import',
-      {
-        libraryName: 'antd-mobile',
-        libraryDirectory: 'es/components',
-        style: false,
-      },
-    ],
-  ],
+  // extraBabelPlugins: [
+  //   [
+  //     'import',
+  //     {
+  //       libraryName: 'antd-mobile',
+  //       libraryDirectory: 'es/components',
+  //       style: false,
+  //     },
+  //   ],
+  // ],
 });

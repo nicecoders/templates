@@ -1,72 +1,54 @@
-import axios from 'axios';
+import { extend } from 'umi-request';
 import { Toast } from 'antd-mobile';
 import CodeMsg from '@/assets/data/code';
 import { BaseResponse } from '@/interfaces/base';
-
-export const DEFAULT_TIP_MESSAGE = '请求失败，请刷新重试';
 
 /**
  * 错误处理
  * @param data {Object} 请求返回的信息
  */
-export function handleError(data: BaseResponse): void {
-  const msg = CodeMsg[data.code] || data.msg || DEFAULT_TIP_MESSAGE;
+export function handleError(data: BaseResponse) {
+  const msg = CodeMsg[data.code] || data.msg || CodeMsg['DEFAULT_TIP_MESSAGE'];
   Toast.show({
     content: msg,
   })
 }
 
 // create an axios instance
-const service = axios.create({
+const service = extend({
   baseURL: process.env.BASE_API, // api的base_url
-  // timeout: 5000, // request timeout
+  timeout: 1000,
+  mode: 'cors',
+  errorHandler: (error: any) => handleError(error),
 });
 
 // request interceptor
 service.interceptors.request.use(
-  config => {
+  (url: string, config: any) => {
     // 防止 GET 请求缓存GET
-    if (config.method === 'get') {
+    if (config.method === 'GET') {
       const t = new Date().getTime();
       config.params = config.params ? { ...config.params, t } : { t };
     }
     return config;
-  },
-  error => {
-    // Do something with request error
-    if (error.status === '504') {
-      Toast.show({
-        content: '网关超时，请重试！',
-      })
-    } else {
-      Toast.show({
-        content: `网络异常[-${error.status}]`,
-      })
-      console.log(error); // for debug
-    }
-    Promise.reject(error);
-  },
+  }
 );
 
 // response interceptor
 service.interceptors.response.use(
-  response => {
-    const res = response.data;
-    if (!res.success) {
-      if (res.code === '1007') {
+  async (response: any) => {
+    const res = await response.clone().json();
+    if (Number(res.code) !== 200) {
+      if (Number(res.code) === 1007) {
         // 登录失效
         window.location.href = '/';
-        return;
+        return Promise.resolve();
       }
       handleError(res);
+      return Promise.resolve();
     }
-    return res;
-  },
-  error => {
-    handleError(error);
-    console.log(`err${error}`); // for debug
-    return Promise.reject(error);
-  },
+    return res.data;
+  }
 );
 
 export default service;

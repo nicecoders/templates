@@ -14,7 +14,12 @@ module.exports = (nextConfig = {}) => {
         cssModules,
         cssLoaderOptions,
         postcssLoaderOptions,
-        lessLoaderOptions = {},
+        lessLoaderOptions = {
+          lessOptions: {
+            strictMath: true,
+            noIeCompat: true
+          }
+        },
       } = nextConfig;
 
       options.defaultLoaders.less = cssLoaderConfig(config, {

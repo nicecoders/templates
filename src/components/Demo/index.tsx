@@ -5,9 +5,7 @@ import styles from './index.less';
 const Demo: React.FunctionComponent = () => {
   return (
     <div className={styles.container}>
-      <h1>title</h1>
-      <p>demo</p>
-      <Button>Button</Button>
+      <Button type='primary'>我知道了</Button>
     </div>
   );
 };

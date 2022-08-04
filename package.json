@@ -15,11 +15,11 @@
     "prettier": "prettier --write 'src/**/*.{less,css,md,json}'"
   },
   "dependencies": {
-    "antd": "^100.0.1",
     "axios": "^0.21.1",
     "next": "10.0.4",
     "normalize.css": "^8.0.1",
     "react": "17.0.1",
+    "antd": "^4.22.3",
     "react-dom": "17.0.1"
   },
   "devDependencies": {

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="http://jzx-h5.oss-cn-hangzhou.aliyuncs.com/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <img class="pic" alt="Vue logo" src="http://jzx-h5.oss-cn-hangzhou.aliyuncs.com/logo.png" />
+    <HelloWorld msg=" Hi, 我是 dev" />
   </div>
 </template>
 
@@ -17,3 +17,7 @@ import HelloWorld from "@/components/HelloWorld.vue";
 export default class Home extends Vue {
 }
 </script>
+<style lang="stylus">
+  .pic 
+    width: 100%
+</style>

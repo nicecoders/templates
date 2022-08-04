@@ -39,15 +39,16 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@ant-design/pro-components": "^1.1.2",
     "@ant-design/pro-layout": "^6.15.4",
     "antd": "^4.20.6",
-    "@ant-design/pro-components": "^1.1.2",
     "classnames": "^2.2.6",
     "dayjs": "^1.11.2",
     "js-cookie": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "umi": "^3.5.15"
+    "umi": "^3.5.15",
+    "yapi-to-typescript": "^3.34.1"
   },
   "devDependencies": {
     "@nicecode/commit-lint": "^0.1.2",

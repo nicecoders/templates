@@ -73,6 +73,7 @@
     "postcss-px2rem": "^0.3.0",
     "prettier": "^1.19.1",
     "typescript": "^4.1.3",
+    "yapi-to-typescript": "^3.34.1",
     "yorkie": "^2.0.0"
   }
 }

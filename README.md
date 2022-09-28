@@ -1,34 +1,29 @@
-## 目前已有脚手架列表
+# my_midway_project
 
-| 名称    | 说明                        | 技术栈                |
-| ------- | --------------------------- | --------------------- |
-| nextJs  | 基于 React 的服务端渲染方案 | nextJs + axios + antd |
-| ReactJs | 基于 React 的业务型脚手架   | umiJs + axios + antd  |
-| TaroJs  | 基于 React 的多端适配方案   | TaroJs 全家桶         |
-| Vue     | 基于 Vue 的业务型脚手架     | vueJs 全家桶          |
-| Gulp    | 基于 Gulp 的清凉型脚手架    | --                    |
+## QuickStart
 
-## 快速上手
+<!-- add docs here for user -->
 
-### 1. 安装相关依赖
+see [midway docs][midway] for more detail.
 
-```js
-// 推荐
-yarn global add @nicecode/cli
+### Development
 
-// or
-// npm install @nicecode/cli -g
+```bash
+$ npm i
+$ npm run dev
+$ open http://localhost:7001/
 ```
 
-### 2. 运行命令
+### Deploy
 
-```js
-// 查看脚手架版本号，是否安装成功
-nice - V
+```bash
+$ npm start
 ```
 
-### 3. 创建项目
+### npm scripts
 
-```js
-nice create ${项目名称}
-```
+- Use `npm run lint` to check code style.
+- Use `npm test` to run unit test.
+
+
+[midway]: https://midwayjs.org

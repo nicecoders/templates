@@ -1,10 +1,10 @@
 {
   "name": "miniprogram-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "微信小程序脚手架，基于vant",
   "scripts": {},
-  "keywords": [],
-  "author": "",
+  "keywords": ['微信小程序脚手架', 'cli', '脚手架'],
+  "author": "dev",
   "license": "",
   "dependencies": {
     "@vant/weapp": "^1.10.3"

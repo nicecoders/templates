@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img class="pic" alt="Vue logo" src="http://jzx-h5.oss-cn-hangzhou.aliyuncs.com/logo.png" />
+    <img class="pic" alt="Vue logo" src="@/assets/logo.png" />
     <HelloWorld msg=" Hi, 我是 dev" />
   </div>
 </template>

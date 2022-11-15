@@ -62,7 +62,7 @@ const BasicLayout: React.FC<IBasicLayout> = ({ children, ...rest }: any) => {
   return (
     <ProLayout
       className="g-basic-layout"
-      logo="http://jzx-h5.oss-cn-hangzhou.aliyuncs.com/static/pill.png?x-oss-process=img/q/80"
+      logo={require('@/assets/images/login.png')}
       title="nicecode"
       siderWidth={180}
       fixedHeader

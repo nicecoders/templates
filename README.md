@@ -32,3 +32,5 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+如果报错，将node版本降低到16以下

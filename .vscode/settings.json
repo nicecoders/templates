@@ -6,7 +6,7 @@
     // 控制编辑器是否应在对屏幕阅读器进行了优化的模式下运行。设置为“开”将禁用自动换行。
     "editor.accessibilitySupport": "off",
     // 控制是否启用平滑插入动画
-    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorSmoothCaretAnimation": "on",
     "editor.find.addExtraSpaceOnTop": false,
     // 这个控制是否启用字体连字
     "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss06', 'zero'",

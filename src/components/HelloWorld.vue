@@ -1,33 +1,40 @@
+<script setup lang="ts">
+defineProps<{
+  msg: string
+}>()
+</script>
+
 <template>
-  <div class="hello">
-    {{ msg }}
+  <div class="greetings">
+    <h1 class="green">{{ msg }}</h1>
+    <h3>
+      hello, 欢迎使用 nicecode 脚手架包
+      该包基于<a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
+      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a> + pinia 开发，祝你使用愉快
+    </h3>
   </div>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from "vue-class-component";
-
-@Options({
-  props: {
-    msg: String,
-  },
-})
-export default class HelloWorld extends Vue {
-  msg!: string;
+<style scoped>
+h1 {
+  font-weight: 500;
+  font-size: 2.6rem;
+  top: -10px;
 }
-</script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="stylus">
-h3
-  margin 20px 0 0
+h3 {
+  font-size: 1.2rem;
+}
 
-ul
-  list-style-type none
-  padding 0
+.greetings h1,
+.greetings h3 {
+  text-align: center;
+}
 
-li
-  display inline-block
-  margin 0 10px
-
+@media (min-width: 1024px) {
+  .greetings h1,
+  .greetings h3 {
+    text-align: left;
+  }
+}
 </style>

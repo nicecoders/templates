@@ -1,29 +1,22 @@
 import fs from 'fs';
-import path from 'path';
-// import request from 'request';
 
-export const uploadFile = (filePath: File['path']) => {
-  console.log('123', 123)
-  const fileStream = fs.createReadStream(filePath);
-  const fileName = path.basename(filePath);
-  const uploadUrl = 'http://your-upload-api.com/upload'; // 请替换为实际的上传地址
+export const uploadFile = (filePath: File['path'], sender) => {
+  const fileSize = fs.statSync(filePath).size;
+  let uploadedSize = 0;
 
-  console.log('fileStream', fileStream)
+  const readStream = fs.createReadStream(filePath);
 
-  fileStream.on('open', () => {
-    console.log(`Start uploading file: ${fileName}`);
-    // const req = request.post(uploadUrl, (err, resp, body) => {
-    //   if (err) {
-    //     console.error('Failed to upload file:', err);
-    //   } else {
-    //     console.log('File uploaded successfully!');
-    //   }
-    // });
-
-    // fileStream.pipe(req);
+  readStream.on('data', (chunk) => {
+    uploadedSize += chunk.length;
+    const progress = Math.round((uploadedSize / fileSize) * 100);
+    sender.send('upload-progress', progress);
   });
 
-  fileStream.on('error', (err) => {
-    console.error('Failed to open file stream:', err);
+  readStream.on('end', () => {
+    sender.send('upload-success');
+  });
+
+  readStream.on('error', (err) => {
+    sender.send('upload-error', err.message);
   });
 }

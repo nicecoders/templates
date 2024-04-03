@@ -11,4 +11,9 @@ contextBridge.exposeInMainWorld('versions', {
 contextBridge.exposeInMainWorld('baseAPI', {
   setTitle: (title: string) => ipcRenderer.send('set-title', title),
   uploadFile: (filePath: string) => ipcRenderer.send('upload', filePath),
+  onUploadProgress: (cb: (progress: string) => void) => ipcRenderer.on('upload-progress', 
+    (_event, progress) => {
+      cb?.(progress)
+    }
+  )
 })

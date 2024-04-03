@@ -1,4 +1,5 @@
 import { message, Upload, UploadProps } from 'antd'
+import { useEffect, useState } from 'react';
 
 const { Dragger } = Upload;
 
@@ -7,15 +8,11 @@ const props: UploadProps = {
   multiple: true,
   capture: 'user',
   hasControlInside: false,
-  action: file => {
-    console.log('file', file)
-    // @ts-ignore
-    window.baseAPI.uploadFile(file.path)
-    // @ts-ignore
-    window.baseAPI.setTitle(file.path)
-    return 'file'
-  },
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  action: false,
   onChange(info) {
+    console.log('info', info)
     const { status } = info.file;
     if (status !== 'uploading') {
       console.log(info.file, info.fileList);
@@ -32,12 +29,20 @@ const props: UploadProps = {
 };
 
 export default () => {
+  const [progress, setProgress] = useState(0)
+  
+  useEffect(() => {
+    window.baseAPI.onUploadProgress((_progress: unknown) => {
+      console.log('_progress', _progress)
+      setProgress(_progress)
+    })
+  }, [])
 
   return (
     <div>
       <Dragger {...props}>
         <p className="ant-upload-drag-icon">
-          ✋
+          ✋{progress}
         </p>
         <p className="ant-upload-text">文件拖拽到这上传</p>
       </Dragger>

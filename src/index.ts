@@ -10,8 +10,7 @@ if (require('electron-squirrel-startup')) {
 }
 
 const createWindow = (): void => {
-  Menu.setApplicationMenu(null) 
-  ipcMain.handle('ping', () => 'pong')
+  // Menu.setApplicationMenu(null) 
   const mainWindow = new BrowserWindow({
     height: 600,
     width: 800,
@@ -26,9 +25,9 @@ const createWindow = (): void => {
     win.setTitle(title)
   })
 
-  ipcMain.on('upload', (_event, filePath) => {
+  ipcMain.on('upload', (event, filePath) => {
     // 在后台线程中处理文件上传
-    uploadFile(filePath);
+    uploadFile(filePath, event.sender);
   });
 
   // and load the index.html of the app.

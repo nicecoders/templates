@@ -25,9 +25,9 @@ const createWindow = (): void => {
     win.setTitle(title)
   })
 
-  ipcMain.on('upload', (event, filePath) => {
+  ipcMain.on('upload', (event, filePaths: string[]) => {
     // 在后台线程中处理文件上传
-    uploadFile(filePath, event.sender);
+    uploadFile(filePaths, event.sender);
   });
 
   // and load the index.html of the app.

@@ -1,5 +1,5 @@
 interface IBaseAPI {
-  uploadFile: (path: string) => void
+  uploadFile: (path: File[]) => void
   setTitle: (value: string) => void
   onUploadProgress: (progress: unknown) => void
 }

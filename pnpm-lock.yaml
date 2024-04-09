@@ -17,6 +17,9 @@ dependencies:
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
+  normalize.css:
+    specifier: ^8.0.1
+    version: 8.0.1
   umi:
     specifier: ^4.0.42
     version: 4.1.8(@babel/core@7.24.4)(@types/node@20.12.2)(@types/react@18.2.73)(eslint@8.57.0)(jest@29.7.0)(prettier@2.8.8)(react-dom@18.2.0)(react@18.2.0)(stylelint@14.16.1)(typescript@5.4.4)(webpack@5.91.0)
@@ -3422,7 +3425,7 @@ packages:
       '@types/history': 4.7.11
       '@types/react': 18.2.73
       '@types/react-router': 5.1.20
-      redux: 3.7.2
+      redux: 4.2.1
     dev: true
 
   /@types/react-router@5.1.20:
@@ -9080,6 +9083,10 @@ packages:
     resolution: {integrity: sha512-DlL+XwOy3NxAQ8xuC0okPgK46iuVNAK01YN7RueYBqqFeGsBjV9XmCAzAdgt+667bCl5kPh9EqKKDwnaPG1I7A==}
     engines: {node: '>=10'}
     dev: true
+
+  /normalize.css@8.0.1:
+    resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==}
+    dev: false
 
   /npm-run-path@4.0.1:
     resolution: {integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==}

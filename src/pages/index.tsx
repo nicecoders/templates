@@ -1,4 +1,4 @@
-import { Button } from 'antd';
+import { Button, message } from 'antd';
 import avatar from '../assets/avatar.jpg';
 
 export default function HomePage() {
@@ -13,7 +13,7 @@ export default function HomePage() {
       </p>
       <Button
         onClick={async () => {
-          window.alert(await window.$api.getPlatform());
+          message.info(await window.$api.getPlatform());
         }}
       >
         what is my platform?

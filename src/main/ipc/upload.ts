@@ -1,19 +1,19 @@
 import { app, ipcMain } from 'electron';
-import fs from 'fs';
-import path from 'node:path';
+// import fs from 'fs';
+// import path from 'node:path';
 
 ipcMain.on('uploadFile', (event, filePaths: string[]) => {
   // 获取用户当前文件夹路径
-  // console.log('app', app.getPath('userData'))
+  console.log('app', app.getGPUInfo('basic'))
   // const saveDirectoryPath = await app.getPath('downloads');
-    for (let i = 0; i < filePaths.length; i++) {
-        const fileName = path.basename(filePaths[i]);
-        const targetFilePath = path.join(__dirname, fileName);
-        const fileStream = fs.createWriteStream(targetFilePath);
-        fileStream.write(fs.readFileSync(filePaths[i]));
-        fileStream.end();
-        console.log('Uploaded file saved at:', targetFilePath);
-    }
+    // for (let i = 0; i < filePaths.length; i++) {
+    //     const fileName = path.basename(filePaths[i]);
+    //     const targetFilePath = path.join(__dirname, fileName);
+    //     const fileStream = fs.createWriteStream(targetFilePath);
+    //     fileStream.write(fs.readFileSync(filePaths[i]));
+    //     fileStream.end();
+    //     console.log('Uploaded file saved at:', targetFilePath);
+    // }
   // const fileSize = fs.statSync(filePath).size;
   // let uploadedSize = 0;
 

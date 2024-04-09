@@ -2,11 +2,15 @@ import { BrowserWindowConstructorOptions } from 'electron';
 
 export default {
   browserWindow: {
-    titleBarStyle: process.platform === 'win32' ? 'hidden' : 'hiddenInset',
+    title: 'nicecode 客户端模板',
+    titleBarOverlay: {
+      color: '#2f3241',
+      symbolColor: '#74b1be',
+      height: 48
+    },
     maximizable: false,
     webPreferences: {
-      contextIsolation: false,
-      enableRemoteModule: true
+      enableRemoteModule: true,
     }
   } as BrowserWindowConstructorOptions
 };

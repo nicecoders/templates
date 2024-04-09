@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import avatar from '../assets/avatar.jpg';
 
 export default function HomePage() {
@@ -10,13 +11,13 @@ export default function HomePage() {
       <p>
         To get started, edit <code>pages/index.tsx</code> and save to reload.
       </p>
-      <button
+      <Button
         onClick={async () => {
           window.alert(await window.$api.getPlatform());
         }}
       >
         what is my platform?
-      </button>
+      </Button>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { ipcMain } from 'electron';
+import { ipcMain, app } from 'electron';
 
 ipcMain.handle('getPlatform', () => {
   return `hi, i'm from ${process.platform}`;

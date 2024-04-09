@@ -1,5 +1,5 @@
-import { defineConfig } from 'umi';
-import { Platform, createTargets } from '@umijs/plugin-electron';
+import { defineConfig } from "umi";
+import { Platform, createTargets } from "@umijs/plugin-electron";
 
 // example: mac & windows
 const targets = createTargets([Platform.WINDOWS]);
@@ -8,14 +8,23 @@ const targets = createTargets([Platform.WINDOWS]);
 // const targets = Platform.MAC.createTarget(['dmg'], Arch.arm64);
 
 export default defineConfig({
-  npmClient: 'yarn',
-  plugins: ['@umijs/plugin-electron'],
+  npmClient: "pnpm",
+  plugins: ["@umijs/plugin-electron", "@umijs/plugins/dist/dva"],
+  // metas: [
+  //   {
+  //     'http-equiv': 'Content-Security-Policy',
+  //     content: "default-src 'none'"
+  //   }
+  // ],
   electron: {
     builder: {
-      targets
+      targets,
+      config: {}
     },
-    extraDevFiles: {
-      // 'xxxx.js' : fs.readFileSync('xxxx.js','utf-8'),
-    }
+    extraDevFiles: {}
   },
+  define: {
+    APP_ENV: "dev"
+  },
+  dva: {},
 });

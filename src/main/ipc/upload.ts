@@ -1,19 +1,19 @@
-import { app } from 'electron';
+import { app, ipcMain } from 'electron';
 import fs from 'fs';
 import path from 'node:path';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const uploadFile = (filePaths: string[], _sender: Electron.WebContents) => {
+ipcMain.on('uploadFile', (event, filePaths: string[]) => {
   // 获取用户当前文件夹路径
-  const saveDirectoryPath = app.getPath('downloads');
-  for (let i = 0; i < filePaths.length; i++) {
-      const fileName = path.basename(filePaths[i]);
-      const targetFilePath = path.join(saveDirectoryPath, fileName);
-      const fileStream = fs.createWriteStream(targetFilePath);
-      fileStream.write(fs.readFileSync(filePaths[i]));
-      fileStream.end();
-      console.log('Uploaded file saved at:', targetFilePath);
-  }
+  // console.log('app', app.getPath('userData'))
+  // const saveDirectoryPath = await app.getPath('downloads');
+    for (let i = 0; i < filePaths.length; i++) {
+        const fileName = path.basename(filePaths[i]);
+        const targetFilePath = path.join(__dirname, fileName);
+        const fileStream = fs.createWriteStream(targetFilePath);
+        fileStream.write(fs.readFileSync(filePaths[i]));
+        fileStream.end();
+        console.log('Uploaded file saved at:', targetFilePath);
+    }
   // const fileSize = fs.statSync(filePath).size;
   // let uploadedSize = 0;
 
@@ -32,7 +32,8 @@ export const uploadFile = (filePaths: string[], _sender: Electron.WebContents) =
   // readStream.on('error', (err) => {
   //   sender.send('upload-error', err.message);
   // });
-}
+});
+
 
 export const singleUpload = (file: File) => {
     const path = file.path;         //文件本地路径 

@@ -1,4 +1,4 @@
-import { Button, message, Upload } from 'antd'
+import { Button, message, Space, Upload } from 'antd'
 import { useEffect, useState } from 'react';
 import type { GetProp, UploadFile, UploadProps } from 'antd';
 
@@ -22,7 +22,7 @@ export default () => {
     setUploading(true);
     const filePaths = fileList.map((_file: any) => _file.path)
     console.log('filePaths', filePaths)
-    window.baseAPI.uploadFile(filePaths)
+    window.$api.uploadFile(filePaths)
     setUploading(false)
   };
 
@@ -52,14 +52,14 @@ export default () => {
   };
   
   return (
-    <div>
+    <Space direction='vertical' style={{ width: '600px' }}>
       <Dragger {...uploadProps}>
         <p className="ant-upload-drag-icon">
           ✋{progress}
         </p>
         <p className="ant-upload-text">文件拖拽到这上传</p>
       </Dragger>
-      <Button block onClick={() => handleUpload()} >上传</Button>
-    </div>
+      <Button type='primary' block onClick={() => handleUpload()} >上传</Button>
+    </Space>
   )
 }

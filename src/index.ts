@@ -15,7 +15,8 @@ const createWindow = (): void => {
     height: 600,
     width: 800,
     webPreferences: {
-      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY
+      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
+      webviewTag: true
     },
   });
 
